@@ -26,7 +26,7 @@ class Api::V1::ReservationsController < ApiController
     @reservation.user = current_user
     if @reservation.save
       render :json => { :booking_code => @reservation.booking_code,
-                        :reservation_url => api_v1_train_url(@reservation.booking_code)}
+                        :reservation_url => api_v1_reservation_url(@reservation.booking_code)}
     else
       render :json => { :message => "订票失败", :errors => @reservation.errors }, :status => 400
     end

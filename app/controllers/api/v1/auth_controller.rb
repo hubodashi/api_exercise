@@ -5,7 +5,7 @@ class Api::V1::AuthController < ApiController
     if user.save
       render :json => { :user_id => user.id }
     else
-      render :json => { :message => "Failed", :errore => user.errors }, :status => 400
+      render :json => { :message => "Failed", :errors => user.errors }, :status => 400
     end
   end
   def login
